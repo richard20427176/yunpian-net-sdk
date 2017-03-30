@@ -45,6 +45,12 @@ namespace Yunpian.model
         }
         public static JArray strToObj(string str)
         {
+            string[] strArr = { "[", str, "]" };
+            if (str.StartsWith("{"))
+            {
+                str = string.Concat(strArr);
+            }
+            
             JArray json = (JArray)JsonConvert.DeserializeObject(str);
             return json;
         }
